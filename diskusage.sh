@@ -3,7 +3,7 @@ THRESHOLD=80
 
 MOUNT_POINT="/c"
 
-USAGE=$(df -h | awk -v mount="$MOUNT_POINT" '$6 == mount {print $5}')
+USAGE=$(df -h | awk -v mount="$MOUNT_POINT" '$6 == mount {print $5}' | sed 's/%//g')
 
 echo "The usage percentage for $MOUNT_POINT is: $USAGE"
 
